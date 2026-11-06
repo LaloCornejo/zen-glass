@@ -59,11 +59,12 @@
 
 :root:not([zen-single-toolbar="true"]):not([zen-compact-mode="true"])
   #zen-appcontent-navbar-wrapper,
-#zen-appcontent-navbar-wrapper:is(
-  [zen-has-hover],
-  [has-popup-menu],
-  [zen-compact-mode-active]
-) {
+:root[zen-compact-mode="true"]
+  #zen-appcontent-navbar-wrapper:is(
+    [zen-has-hover],
+    [has-popup-menu],
+    [zen-compact-mode-active]
+  ) {
   background-color: var(--zg-surface) !important;
   backdrop-filter: var(--zg-filter) !important;
   border-radius: var(--zg-radius) !important;
