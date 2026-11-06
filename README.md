@@ -94,6 +94,11 @@ use Windows Mica to see the Gaussian blur clearly.
 - Zen Browser 1.24 or newer
 - No dependencies
 
+## Changelog
+
+- **1.0.1** - Fix an empty glass bar on top of the page in single-toolbar mode.
+- **1.0.0** - Initial release.
+
 ## License
 
 MIT
