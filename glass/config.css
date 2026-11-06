@@ -1,0 +1,49 @@
+/* ============================================================
+   Zen Glass - user settings
+   Edit the values below, then restart Zen Browser.
+   ============================================================ */
+
+:root {
+  /* Blur radius. 0px turns the Gaussian blur off. */
+  --zg-blur: 22px;
+
+  /* Saturation boost applied together with the blur. 100% = unchanged. */
+  --zg-saturation: 160%;
+
+  /* Opacity of the glass surface. 0 = invisible, 1 = solid. */
+  --zg-tint-alpha: 0.38;
+
+  /* RGB channels for the light and dark glass tints. */
+  --zg-light-rgb: 255 255 255;
+  --zg-dark-rgb: 14 14 18;
+
+  /* Opacity for the stronger surfaces (URL bar, menus, findbar). */
+  --zg-strong-alpha: 0.68;
+
+  /* Corner radius. Falls back to Zen's own radius when available. */
+  --zg-radius: var(--zen-border-radius, 12px);
+
+  /* Shadow under the glass panels. */
+  --zg-shadow: 0 12px 32px rgb(0 0 0 / 18%);
+
+  /* Derived values. Do not edit below this line. */
+  --zg-filter: blur(var(--zg-blur)) saturate(var(--zg-saturation));
+  --zg-surface: light-dark(
+    rgb(var(--zg-light-rgb) / var(--zg-tint-alpha)),
+    rgb(var(--zg-dark-rgb) / var(--zg-tint-alpha))
+  );
+  --zg-surface-strong: light-dark(
+    rgb(var(--zg-light-rgb) / var(--zg-strong-alpha)),
+    rgb(var(--zg-dark-rgb) / var(--zg-strong-alpha))
+  );
+  --zg-edge: light-dark(rgb(255 255 255 / 45%), rgb(255 255 255 / 12%));
+}
+
+/* Respect the operating system accessibility setting. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --zg-tint-alpha: 0.96;
+    --zg-strong-alpha: 0.98;
+    --zg-filter: none;
+  }
+}

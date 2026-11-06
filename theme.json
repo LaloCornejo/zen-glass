@@ -1,0 +1,16 @@
+{
+  "id": "zen-glass",
+  "homepage": "https://github.com/LaloCornejo/zen-glass",
+  "author": "LaloCornejo",
+  "name": "Zen Glass",
+  "description": "Translucent Zen Browser chrome with a Gaussian blur. Sidebar, toolbar, URL bar and menus only. No scripts, no layout changes.",
+  "version": "1.0.0",
+  "createdAt": "2026-11-06",
+  "updatedAt": "2026-11-06",
+  "readme": "https://raw.githubusercontent.com/LaloCornejo/zen-glass/main/README.md",
+  "style": {
+    "chrome": "userChrome.css"
+  },
+  "tags": ["chrome", "glass", "translucent", "minimal"],
+  "fork": ["zen"]
+}

@@ -1,0 +1,157 @@
+/* ============================================================
+   Zen Glass - translucent chrome with a Gaussian blur
+   Only the browser UI is affected. Web pages are untouched.
+   ============================================================ */
+
+@import url("config.css");
+
+/* ------------------------------------------------------------
+   1. Window backdrop
+   Remove the opaque window layer so Zen's wallpaper, gradient
+   or Windows Mica material can show behind the glass.
+   ------------------------------------------------------------ */
+
+#zen-main-app-wrapper {
+  background-color: transparent !important;
+}
+
+:root {
+  --zen-themed-toolbar-bg-transparent: transparent !important;
+}
+
+/* Keep Zen's painted toolbar background from covering the glass. */
+.zen-toolbar-background,
+.zen-toolbar-background::before,
+.zen-toolbar-background::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ------------------------------------------------------------
+   2. Sidebar / vertical tab strip
+   ------------------------------------------------------------ */
+
+#navigator-toolbox {
+  background-color: var(--zg-surface) !important;
+  background-image: none !important;
+  backdrop-filter: var(--zg-filter) !important;
+  border-radius: var(--zg-radius) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--zg-edge),
+    var(--zg-shadow) !important;
+}
+
+/* Let the sidebar glass show through its own toolbars. */
+#titlebar,
+#TabsToolbar,
+#nav-bar,
+#PersonalToolbar,
+#zen-sidebar-top-buttons {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* ------------------------------------------------------------
+   3. Top toolbar (single toolbar layout)
+   ------------------------------------------------------------ */
+
+:root[zen-single-toolbar="true"]:not([zen-compact-mode="true"])
+  #zen-appcontent-navbar-wrapper,
+#zen-appcontent-navbar-wrapper:is(
+  [zen-has-hover],
+  [has-popup-menu],
+  [zen-compact-mode-active]
+) {
+  background-color: var(--zg-surface) !important;
+  backdrop-filter: var(--zg-filter) !important;
+  border-radius: var(--zg-radius) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--zg-edge),
+    var(--zg-shadow) !important;
+}
+
+#zen-appcontent-navbar-container {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* ------------------------------------------------------------
+   4. URL bar
+   ------------------------------------------------------------ */
+
+#urlbar .urlbar-background {
+  background: var(--zg-surface) !important;
+  backdrop-filter: var(--zg-filter) !important;
+  box-shadow: inset 0 0 0 1px var(--zg-edge) !important;
+}
+
+#urlbar:hover:not([open]) .urlbar-background {
+  background: var(--zg-surface-strong) !important;
+}
+
+#urlbar[open] {
+  backdrop-filter: var(--zg-filter) !important;
+  border-radius: var(--zg-radius) !important;
+}
+
+#urlbar[open] .urlbar-background {
+  background: var(--zg-surface-strong) !important;
+  border-radius: var(--zg-radius) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--zg-edge),
+    var(--zg-shadow) !important;
+}
+
+/* ------------------------------------------------------------
+   5. Menus, panels and dialogs
+   ------------------------------------------------------------ */
+
+:root {
+  --arrowpanel-background: var(--zg-surface-strong) !important;
+  --panel-background: var(--zg-surface-strong) !important;
+  --panel-border-color: var(--zg-edge) !important;
+}
+
+menupopup,
+panel {
+  --panel-background-color: var(--zg-surface-strong) !important;
+}
+
+panel,
+menupopup,
+.panel-arrowcontent {
+  backdrop-filter: var(--zg-filter) !important;
+}
+
+/* ------------------------------------------------------------
+   6. Findbar and status popup
+   ------------------------------------------------------------ */
+
+findbar {
+  background: var(--zg-surface-strong) !important;
+  backdrop-filter: var(--zg-filter) !important;
+  border: none !important;
+  border-radius: var(--zg-radius) !important;
+  box-shadow:
+    inset 0 0 0 1px var(--zg-edge),
+    var(--zg-shadow) !important;
+}
+
+#statuspanel-label {
+  background: var(--zg-surface-strong) !important;
+  backdrop-filter: var(--zg-filter) !important;
+  border: 1px solid var(--zg-edge) !important;
+  border-radius: var(--zg-radius) !important;
+  box-shadow: var(--zg-shadow) !important;
+}
+
+/* ------------------------------------------------------------
+   7. Rendering
+   ------------------------------------------------------------ */
+
+/* Helps Firefox composite the blur without flicker. */
+browser {
+  transform: translateZ(0);
+}
