@@ -54,10 +54,10 @@
 }
 
 /* ------------------------------------------------------------
-   3. Top toolbar (single toolbar layout)
+   3. Separate top toolbar (multi-toolbar layout)
    ------------------------------------------------------------ */
 
-:root[zen-single-toolbar="true"]:not([zen-compact-mode="true"])
+:root:not([zen-single-toolbar="true"]):not([zen-compact-mode="true"])
   #zen-appcontent-navbar-wrapper,
 #zen-appcontent-navbar-wrapper:is(
   [zen-has-hover],

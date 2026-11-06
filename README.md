@@ -9,7 +9,7 @@ touch web pages.
 ## What it does
 
 - Frosted sidebar and vertical tab strip
-- Frosted top toolbar in single-toolbar mode
+- Frosted separate top toolbar in multi-toolbar mode
 - Frosted URL bar, menus, panels, findbar and status popup
 - Editable blur, saturation, tint and radius
 - Respects `prefers-reduced-transparency`
